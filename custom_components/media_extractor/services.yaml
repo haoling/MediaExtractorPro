@@ -33,7 +33,9 @@ play_media:
         boolean:
     list_limit:
       description: Limit playlist length.
+      default: 10
       selector:
         number:
           min: 1
+          step: 1
           max: 255
