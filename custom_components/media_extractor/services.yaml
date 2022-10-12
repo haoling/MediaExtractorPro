@@ -36,3 +36,4 @@ play_media:
       example: '10'
       selector:
         number:
+          min: 1
