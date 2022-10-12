@@ -30,7 +30,4 @@ play_media:
       description: Shuffle playlist.
       example: 'false'
       selector:
-        select:
-          options:
-            - "false"
-            - "true"
+        boolean:
