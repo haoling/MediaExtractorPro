@@ -21,6 +21,7 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = 'media_extractor'
 QUEUE_SYMB = ','
+ATTR_LIST_LIMIT = 'list_limit'
 
 
 def chromecast_monkey_patch():
@@ -76,6 +77,7 @@ def setup(hass: HomeAssistantType, hass_config):
         content_type = call.data.get(ATTR_MEDIA_CONTENT_TYPE)
         url = call.data.get(ATTR_MEDIA_CONTENT_ID)
         shuffle = call.data.get(ATTR_MEDIA_SHUFFLE)
+        limit = call.data.get(ATTR_LIST_LIMIT)
 
         custom = formats.get(entity_id[0], {})
 
@@ -91,6 +93,8 @@ def setup(hass: HomeAssistantType, hass_config):
             media = [process_url(p, format_) for p in media['entries']]
             if shuffle:
                 random.shuffle(media)
+            if limit > 0:
+                media = media[:limit]
             url = QUEUE_SYMB.join(media)
 
         else:
