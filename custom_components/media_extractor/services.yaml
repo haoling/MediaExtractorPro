@@ -10,8 +10,27 @@ play_media:
           domain: media_player
     media_content_id:
       description: The ID of the content to play. Platform dependent.
+      required: true
       example: 'https://soundcloud.com/bruttoband/brutto-11'
+      selector:
+        text:
     media_content_type:
       description: The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC.
       example: 'music'
-      
+      selector:
+        select:
+          options:
+            - "music"
+            - "tvshow"
+            - "video"
+            - "episode"
+            - "channel"
+            - "playlist music"
+    shuffle:
+      description: Shuffle playlist.
+      example: 'false'
+      selector:
+        select:
+          options:
+            - "false"
+            - "true"
