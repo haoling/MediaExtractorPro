@@ -31,3 +31,8 @@ play_media:
       example: 'false'
       selector:
         boolean:
+    list_limit:
+      description: Limit playlist length.
+      example: '10'
+      selector:
+        number:
